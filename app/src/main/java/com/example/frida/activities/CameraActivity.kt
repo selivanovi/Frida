@@ -56,7 +56,7 @@ class CameraActivity : AppCompatActivity() {
         grantResults: IntArray
     ) {
         if (requestCode == REQUEST_CODE_PERMISSIONS) {
-            if (allPermissionsGranted()) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 startCamera()
             } else {
                 Toast.makeText(
@@ -114,13 +114,13 @@ class CameraActivity : AppCompatActivity() {
 
     private fun bindPreview(cameraProvider: ProcessCameraProvider) {
 
-        var preview: Preview = Preview.Builder()
+        val preview: Preview = Preview.Builder()
             .build()
 
         imageCapture = ImageCapture.Builder()
             .build()
 
-        var cameraSelector: CameraSelector = CameraSelector.Builder()
+        val cameraSelector: CameraSelector = CameraSelector.Builder()
             .requireLensFacing(CameraSelector.LENS_FACING_BACK)
             .build()
 
