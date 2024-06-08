@@ -7,7 +7,7 @@
     android:background="@color/black"
     tools:context=".activities.MainActivity">
 
-    <com.example.camera.customviews.DrawableImageView
+    <com.example.frida.customviews.DrawableImageView
         android:id="@+id/imageView"
         android:layout_width="0dp"
         android:layout_height="0dp"
